@@ -1,0 +1,42 @@
+
+public class Camera {
+    private static double x = 0.0D;
+    private static double y = 160.0D;
+    private static int w = 800;
+    private static int h = 600;
+
+    public Camera() {
+    }
+
+    public static void move() {
+    }
+
+    public static void setPosition(double x, double y) {
+        Camera.x = x;
+        Camera.y = y;
+        if (Camera.x < 0.0D) {
+            Camera.x = 0.0D;
+        }
+
+        if (Camera.y < 0.0D) {
+            Camera.y = 0.0D;
+        }
+
+        if (Camera.x > (double)(Map.getWorldWidth() - w)) {
+            Camera.x = (double)(Map.getWorldWidth() - w);
+        }
+
+        if (Camera.y > (double)(Map.getWorldHeight() - h)) {
+            Camera.y = (double)(Map.getWorldHeight() - h);
+        }
+
+    }
+
+    public static int getScreenX(double X) {
+        return (int)(X - x);
+    }
+
+    public static int getScreenY(double Y) {
+        return (int)(Y - y);
+    }
+}
